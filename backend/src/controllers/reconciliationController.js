@@ -25,7 +25,6 @@ exports.runReconciliation = async (req, res) => {
         res.status(200).json({ runId, message: 'Reconciliation completed successfully.' });
     } catch (error) {
         console.error(error);
-        require('fs').writeFileSync('error.log', error.stack || error.toString());
         res.status(500).json({ error: 'An error occurred during reconciliation.' });
     }
 };
